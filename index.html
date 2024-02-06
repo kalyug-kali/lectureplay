@@ -103,27 +103,10 @@
 
             setInterval(updateTimer, 1000);
 
-            // Update timer position as user scrolls
+            
             window.addEventListener("scroll", function () {
                 const scrollTop = window.scrollY || document.documentElement.scrollTop;
                 timerContainer.style.top = `${headerHeight + scrollTop}px`;
-            });
-        });
-        document.addEventListener("DOMContentLoaded", function () {
-            // Retrieve playlist checkboxes from the DOM
-            const playlistCheckboxes = document.querySelectorAll('.playlist-checkbox');
-
-            // Add event listeners to save checkbox states when they change
-            playlistCheckboxes.forEach(function (checkbox) {
-                checkbox.addEventListener("change", function () {
-                    localStorage.setItem(checkbox.id, checkbox.checked);
-                });
-
-                // Set the initial state based on the saved state
-                const savedState = localStorage.getItem(checkbox.id);
-                if (savedState === "true") {
-                    checkbox.checked = true;
-                }
             });
         });
     </script>
@@ -162,12 +145,7 @@
             
             
             
-            <!--<li><a href="https://www.youtube.com/playlist?list=YOUR_CHEMISTRY_PLAYLIST_ID">NUCLEI</a></li>
-            <li><a href="https://www.youtube.com/playlist?list=YOUR_CHEMISTRY_PLAYLIST_ID">NUCLEI</a></li>
-            <li><a href="https://www.youtube.com/playlist?list=YOUR_CHEMISTRY_PLAYLIST_ID">NUCLEI</a></li>
-            <li><a href="https://www.youtube.com/playlist?list=YOUR_CHEMISTRY_PLAYLIST_ID">NUCLEI</a></li>
-            <li><a href="https://www.youtube.com/playlist?list=YOUR_CHEMISTRY_PLAYLIST_ID">NUCLEI</a></li>
-            <li><a href="https://www.youtube.com/playlist?list=YOUR_CHEMISTRY_PLAYLIST_ID">NUCLEI</a></li> -->
+            
         </ul>
 
 
@@ -203,15 +181,12 @@
             <li><a href="https://www.youtube.com/playlist?list=YOUR_CHEMISTRY_PLAYLIST_ID">ATOMIC STRUCTURE</a></li>
             <li><a href="https://www.youtube.com/playlist?list=YOUR_CHEMISTRY_PLAYLIST_ID">CHEMICAL EQUILIBRUM</a></li>
             <li><a href="https://www.youtube.com/playlist?list=YOUR_CHEMISTRY_PLAYLIST_ID">IONIC EQUILIBRUM</a></li>
-            <!-- Add more chapters as needed -->
+            
         </ul>
 
         <h3>Maths KA TELEGRRAM SE KARUNGA 🙂 </h3>
         <ul>
-            <!--  <li><a href="https://www.youtube.com/playlist?list=YOUR_MATHS_PLAYLIST_ID">Algebra</a></li>
-            <li><a href="https://www.youtube.com/playlist?list=YOUR_MATHS_PLAYLIST_ID">Geometry</a></li>
-            <li><a href="https://www.youtube.com/playlist?list=YOUR_MATHS_PLAYLIST_ID">Calculus</a></li>
-             Add more chapters as needed -->
+            
         </ul>
     </section>
 
