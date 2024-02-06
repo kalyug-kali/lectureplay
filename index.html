@@ -42,19 +42,92 @@
             padding: 10px;
             text-align: center;
         }
+
         .colored-name {
-            color: #f9f500; 
+            color: #f9f500;
         }
+
+        .timer-container {
+            position: absolute;
+            top: 70px;
+            left: 50px;
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        #timer {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+
+
     </style>
 </head>
 
 <body>
     <header>
         <h1>Your APRIL ATTEMPT Playlist Index</h1>
+        <div class="timer-container">
+            <div id="countdown-heading">The days remaining to getting phucked or phucking JEE main session 2:</div>
+            <div id="timer">00:00:00</div>
+        </div>
     </header>
 
-   
-    </nav>
+    <nav></nav>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const timerElement = document.getElementById("timer");
+            const timerContainer = document.querySelector(".timer-container");
+            const headerHeight = document.querySelector("header").offsetHeight;
+
+            function updateTimer() {
+                const targetDate = new Date("April 6, 2024 00:00:00 GMT+00:00");
+                const currentTime = new Date();
+
+                const timeDifference = targetDate - currentTime;
+
+                const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+                timerElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }
+
+            updateTimer();
+
+            setInterval(updateTimer, 1000);
+
+            // Update timer position as user scrolls
+            window.addEventListener("scroll", function () {
+                const scrollTop = window.scrollY || document.documentElement.scrollTop;
+                timerContainer.style.top = `${headerHeight + scrollTop}px`;
+            });
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            // Retrieve playlist checkboxes from the DOM
+            const playlistCheckboxes = document.querySelectorAll('.playlist-checkbox');
+
+            // Add event listeners to save checkbox states when they change
+            playlistCheckboxes.forEach(function (checkbox) {
+                checkbox.addEventListener("change", function () {
+                    localStorage.setItem(checkbox.id, checkbox.checked);
+                });
+
+                // Set the initial state based on the saved state
+                const savedState = localStorage.getItem(checkbox.id);
+                if (savedState === "true") {
+                    checkbox.checked = true;
+                }
+            });
+        });
+    </script>
+    
 
     <section>
         <h2>Subjects</h2>
